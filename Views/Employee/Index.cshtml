@@ -1,4 +1,8 @@
+@model PaginatedList<OneLinkCompany.Models.Employee>
+@*
 @model IEnumerable<OneLinkCompany.Models.Employee>
+*@
+
 
 @{
     ViewData["Title"] = "Index";
@@ -24,25 +28,32 @@
     <thead>
         <tr>
             <th>
+                
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Last Name</a>
+                @*
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.LastName)</a>
+                *@
                 @*
                 @Html.DisplayNameFor(model => model.LastName)
                 *@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstMidName)
+                First Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TypeDoc)
+                Type of Document
             </th>
             <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DocumentSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Document #</a>
+                @*
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["DocumentSortParm"]">@Html.DisplayNameFor(model => model.Document)</a>
+                *@
                 @*
                 @Html.DisplayNameFor(model => model.Document)
                 *@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AreaName)
+                Area
             </th>
             <th></th>
         </tr>
@@ -54,10 +65,10 @@
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstMidName)
+                    @Html.DisplayFor(modelItem => item.FirstMidName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TypeDoc)
+                    @Html.DisplayFor(modelItem => item.TypeDoc)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Document)
@@ -74,3 +85,22 @@
 }
     </tbody>
 </table>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

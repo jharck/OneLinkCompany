@@ -20,10 +20,25 @@ namespace OneLinkCompany.Controllers
         }
 
         // GET: Employee
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(
+            string sortOrder,
+            string currentFilter,
+            string searchString,
+            int? pageNumber)
         {
+            ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DocumentSortParm"] = sortOrder == "Document" ? "document_desc" : "Document";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
             ViewData["CurrentFilter"] = searchString;
 
             var employees = from e in _context.Employees
@@ -50,7 +65,11 @@ namespace OneLinkCompany.Controllers
                     employees = employees.OrderBy(e => e.LastName);
                     break;
             }
-            return View(await employees.AsNoTracking().ToListAsync());
+
+            int pageSize = 10;
+            return View(await PaginatedList<Employee>.CreateAsync(employees.AsNoTracking(), pageNumber ?? 1, pageSize));
+
+            //return View(await employees.AsNoTracking().ToListAsync());
 
 
             //return View(await _context.Employees.ToListAsync());
