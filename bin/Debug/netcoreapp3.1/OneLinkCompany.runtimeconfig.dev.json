@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/jharck/.dotnet/store/|arch|/|tfm|",
+      "/Users/jharck/.nuget/packages"
+    ]
+  }
+}
