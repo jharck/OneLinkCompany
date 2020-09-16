@@ -54,7 +54,7 @@ namespace OneLinkCompany.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,LastName,FirstMidName,TypeDoc,Document")] Employee employee)
+        public async Task<IActionResult> Create([Bind("ID,LastName,FirstMidName,TypeDoc,Document,AreaName")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace OneLinkCompany.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,LastName,FirstMidName,TypeDoc,Document")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,LastName,FirstMidName,TypeDoc,Document,AreaName")] Employee employee)
         {
             if (id != employee.ID)
             {

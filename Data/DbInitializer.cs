@@ -18,14 +18,14 @@ namespace OneLinkCompany.Data
 
             var employees = new Employee[]
             {
-            new Employee{FirstMidName="Carson",LastName="Alexander",TypeDoc=TypeDoc.DUI,Document="03333445-7"},
-            new Employee{FirstMidName="Meredith",LastName="Alonso",TypeDoc=TypeDoc.DUI,Document="03333445-8"},
-            new Employee{FirstMidName="Arturo",LastName="Anand",TypeDoc=TypeDoc.NIT,Document="0614-171089-145-1"},
-            new Employee{FirstMidName="Gytis",LastName="Barzdukas",TypeDoc=TypeDoc.NIT,Document="0614-171089-145-1"},
-            new Employee{FirstMidName="Yan",LastName="Li",TypeDoc=TypeDoc.DUI,Document="0614-171089-3"},
-            new Employee{FirstMidName="Peggy",LastName="Justice",TypeDoc=TypeDoc.Passport,Document="0614-171089-6"},
-            new Employee{FirstMidName="Javier",LastName="Romero",TypeDoc=TypeDoc.DUI,Document="06171089-1"},
-            new Employee{FirstMidName="Will",LastName="Smith",TypeDoc=TypeDoc.Passport,Document="0614-171089-1"},
+            new Employee{FirstMidName="Carson",LastName="Alexander",TypeDoc=TypeDoc.DUI,Document="03333445-7",AreaName="Operations"},
+            new Employee{FirstMidName="Meredith",LastName="Alonso",TypeDoc=TypeDoc.DUI,Document="03333445-8",AreaName="Information Services"},
+            new Employee{FirstMidName="Arturo",LastName="Anand",TypeDoc=TypeDoc.NIT,Document="0614-171089-145-1",AreaName="Human Resources"},
+            new Employee{FirstMidName="Gytis",LastName="Barzdukas",TypeDoc=TypeDoc.NIT,Document="0614-171089-145-1",AreaName="Human Resources"},
+            new Employee{FirstMidName="Yan",LastName="Li",TypeDoc=TypeDoc.DUI,Document="0614-171089-3",AreaName="Marketing"},
+            new Employee{FirstMidName="Peggy",LastName="Justice",TypeDoc=TypeDoc.Passport,Document="0614-171089-6",AreaName="Human Resources"},
+            new Employee{FirstMidName="Javier",LastName="Romero",TypeDoc=TypeDoc.DUI,Document="06171089-1",AreaName="Information Services"},
+            new Employee{FirstMidName="Will",LastName="Smith",TypeDoc=TypeDoc.Passport,Document="0614-171089-1",AreaName="Information Technologies"},
             };
             foreach (Employee e in employees)
             {

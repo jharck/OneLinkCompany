@@ -31,11 +31,15 @@ namespace OneLinkCompany.Models
             get { return LastName + ", " + FirstMidName; }
         }
 
+        [Display(Name = "Type Of Document")]
         public TypeDoc? TypeDoc { get; set; }
 
+        [Display(Name = "Document #")]
         public string Document { get; set; }
 
         public ICollection<Area> Areas { get; set; }
+
+        public string AreaName { get; set; }
         
     }
 }
