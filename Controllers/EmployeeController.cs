@@ -22,7 +22,6 @@ namespace OneLinkCompany.Controllers
         // GET: Employee
         public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            sortOrder = "Document";
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DocumentSortParm"] = sortOrder == "Document" ? "document_desc" : "Document";
             ViewData["CurrentFilter"] = searchString;
