@@ -14397,6 +14397,26 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/jharck/Development/CSharp/OneLinkCompany/Views/Employee/Create.cshtml",
+      "TargetPath": "Views\\Employee\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/jharck/Development/CSharp/OneLinkCompany/Views/Employee/Delete.cshtml",
+      "TargetPath": "Views\\Employee\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/jharck/Development/CSharp/OneLinkCompany/Views/Employee/Edit.cshtml",
+      "TargetPath": "Views\\Employee\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/jharck/Development/CSharp/OneLinkCompany/Views/Employee/Details.cshtml",
+      "TargetPath": "Views\\Employee\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/jharck/Development/CSharp/OneLinkCompany/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -14424,6 +14444,11 @@
     {
       "FilePath": "/Users/jharck/Development/CSharp/OneLinkCompany/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/jharck/Development/CSharp/OneLinkCompany/Views/Employee/Index.cshtml",
+      "TargetPath": "Views\\Employee\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

@@ -27,7 +27,7 @@ namespace OneLinkCompany.Models
         }
 
         public TypeOfDocuments TypeOfDocument { get; set; }
-        public DepartmentAssignment DepartmentAssignment { get; set; }
+        public ICollection<Area> Areas { get; set; }
         
     }
 }
