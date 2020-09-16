@@ -5,6 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OneLinkCompany.Models
 {
+
+    public enum TypeDoc
+    {
+        DUI, NIT, Passport
+    }
     public class Employee
     {
         public int ID { get; set; }
@@ -26,7 +31,10 @@ namespace OneLinkCompany.Models
             get { return LastName + ", " + FirstMidName; }
         }
 
-        public TypeOfDocuments TypeOfDocument { get; set; }
+        public TypeDoc? TypeDoc { get; set; }
+
+        public string Document { get; set; }
+
         public ICollection<Area> Areas { get; set; }
         
     }

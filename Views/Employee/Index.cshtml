@@ -19,7 +19,10 @@
                 @Html.DisplayNameFor(model => model.FirstMidName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TypeOfDocument)
+                @Html.DisplayNameFor(model => model.TypeDoc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Document)
             </th>
             <th></th>
         </tr>
@@ -34,7 +37,10 @@
                 @Html.DisplayFor(modelItem => item.FirstMidName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TypeOfDocument)
+                @Html.DisplayFor(modelItem => item.TypeDoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Document)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
