@@ -20,9 +20,41 @@ namespace OneLinkCompany.Controllers
         }
 
         // GET: Employee
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            return View(await _context.Employees.ToListAsync());
+            sortOrder = "Document";
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["DocumentSortParm"] = sortOrder == "Document" ? "document_desc" : "Document";
+            ViewData["CurrentFilter"] = searchString;
+
+            var employees = from e in _context.Employees
+                        select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                employees = employees.Where(e => e.LastName.Contains(searchString)
+                                    || e.FirstMidName.Contains(searchString) || e.Document.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    employees = employees.OrderByDescending(e => e.LastName);
+                    break;
+                case "Document":
+                    employees = employees.OrderBy(e => e.Document);
+                    break;
+                case "date_desc":
+                    employees = employees.OrderByDescending(e => e.Areas);
+                    break;
+                default:
+                    employees = employees.OrderBy(e => e.LastName);
+                    break;
+            }
+            return View(await employees.AsNoTracking().ToListAsync());
+
+
+            //return View(await _context.Employees.ToListAsync());
         }
 
         // GET: Employee/Details/5
@@ -34,6 +66,9 @@ namespace OneLinkCompany.Controllers
             }
 
             var employee = await _context.Employees
+                .Include(e => e.Areas)
+            .ThenInclude(a => a.Subarea)
+        .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (employee == null)
             {
